@@ -8,7 +8,4 @@ import retrofit2.http.Url
 interface ApiService {
     @GET
     suspend fun getWeather(@Url endPoint: String) : Response<Weather>
-
-    @GET
-    suspend fun getWeatherSearch(@Url endPoint: String) : Response<Weather>
 }

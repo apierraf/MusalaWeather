@@ -9,9 +9,4 @@ class WeatherRepository @Inject constructor(private val apiService: ApiService) 
     override suspend fun getWeather(endPoint: String): Response<Weather> {
         return apiService.getWeather(endPoint)
     }
-
-    override suspend fun getWeatherSearch(endPoint: String): Response<Weather> {
-        return apiService.getWeatherSearch(endPoint)
-    }
-
 }

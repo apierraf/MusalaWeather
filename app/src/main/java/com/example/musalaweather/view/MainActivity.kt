@@ -74,10 +74,9 @@ class MainActivity : AppCompatActivity() {
 //                Log.e(TAG, getString(R.string.changed, newText))
                 return false
             }
-
             override fun onQueryTextSubmit(query: String): Boolean {
                 val endPoint = "https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=d19ea649a547add6d64031819080bbe8&units=metric"
-                viewModel.getWeatherSearch(endPoint)
+                viewModel.getWeather(endPoint)
                 observeLiveData()
                 Toast.makeText(this@MainActivity,query,Toast.LENGTH_SHORT).show()
                 return false

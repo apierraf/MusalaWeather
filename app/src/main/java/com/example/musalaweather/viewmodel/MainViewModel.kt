@@ -38,25 +38,6 @@ class MainViewModel @Inject constructor(private val repository : WeatherReposito
             }
         }
     }
-
-    fun getWeatherSearch(endPoint : String) {
-        loading.value = true
-        job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-            val response = repository.getWeatherSearch(endPoint)
-            withContext(Dispatchers.Main) {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        weather.value = it
-                        loading.value = false
-                        errorMessage.value = ""
-                    }
-                } else {
-                    onError("Error : ${response.message()} ")
-                }
-            }
-        }
-    }
-
     fun onError(message: String) {
         errorMessage.value = message
         loading.value = false
